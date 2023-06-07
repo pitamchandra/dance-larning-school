@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
 
     const li = <>
-    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Home</NavLink>;</li>
-    <li><NavLink to="/instructors" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Instructors</NavLink>;</li>
-    <li><NavLink to="/classes" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Classes</NavLink>;</li>
-    <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Dashboard</NavLink>;</li>
-    <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Login</NavLink>;</li>
+    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Home</NavLink></li>
+    <li><NavLink to="/instructors" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Instructors</NavLink></li>
+    <li><NavLink to="/classes" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Classes</NavLink></li>
+    <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Dashboard</NavLink></li>
+    <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Login</NavLink></li>
     </>
 
 
@@ -22,7 +22,7 @@ const Navbar = () => {
                    {li}
                 </ul>
                 </div>
-                <a className="normal-case text-xl">Dance Learning <span className="text-orange-500">School</span></a>
+                <a className="text-sm md:text-xl">Dance Learning <span className="text-orange-500">School</span></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
