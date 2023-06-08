@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-    const user = '';
+    const {user} = useContext(AuthContext)
 
     const li = <>
     <li><NavLink to="/" className={({ isActive }) => isActive ? "text-primary" : ""}>Home</NavLink></li>
@@ -36,7 +38,7 @@ const Navbar = () => {
                     <div className="btn btn-primary">Logout</div>
                     <div className="avatar ml-4">
                         <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img src={user && user?.photoURL} />
                         </div>
                     </div>
                     </> : <>

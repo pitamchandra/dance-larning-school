@@ -1,14 +1,40 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import regIcon from '../../../assets/icon/key.png'
 import Social from "../../Shared/Social/Social";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+    const {registerUser} = useContext(AuthContext)
     const [showPass, setShowPass] = useState(false)
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
+        registerUser(data?.email, data?.password)
+        .then((result) => {
+            const createdUser = result.user;
+            updateProfile(createdUser, {
+                displayName: data?.name, photoURL: data?.photo
+            })
+            reset()
+            Swal.fire({
+                icon: 'success',
+                title: 'User Register Successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        })
+        .catch(error =>{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${error?.message}`,
+                footer: '<a href="">Why do I have this issue?</a>'
+              })
+        })
     };
     const password = watch('password')
     return (

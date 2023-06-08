@@ -10,6 +10,7 @@ import Error from './Pages/Error/Error.jsx';
 import Home from './Pages/Home/Home/Home.jsx';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import AuthProvider from './AuthProvider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div className='container mx-auto'>
-    <RouterProvider router={router}></RouterProvider>
+      <AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
     </div>
   </React.StrictMode>,
 )
