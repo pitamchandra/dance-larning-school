@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import regIcon from '../../../assets/icon/key.png'
+import Social from "../../Shared/Social/Social";
 
 const Register = () => {
     const [showPass, setShowPass] = useState(false)
@@ -17,6 +18,7 @@ const Register = () => {
                 <div className="text-center lg:text-left lg:w-1/2">
                 <h1 className="text-5xl font-bold">Register now!</h1>
                 <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                <Social></Social>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-xl  lg:w-1/2">
                     <div className="text-center">
