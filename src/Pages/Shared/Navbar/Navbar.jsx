@@ -1,9 +1,24 @@
 import { useContext } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext)
+    const {user, logout} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleLogout = () =>{
+        logout()
+        .then(()=>{
+            Swal.fire({
+                icon: 'success',
+                title: 'User Logout Successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            navigate('/login')
+        })
+    }
 
     const li = <>
     <li><NavLink to="/" className={({ isActive }) => isActive ? "text-primary" : ""}>Home</NavLink></li>
@@ -35,10 +50,10 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                    <div className="btn btn-primary">Logout</div>
+                    <div className="btn btn-primary" onClick={handleLogout}>Logout</div>
                     <div className="avatar ml-4">
                         <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src={user && user?.photoURL} />
+                            <img title={user && user?.displayName} src={user && user?.photoURL} />
                         </div>
                     </div>
                     </> : <>

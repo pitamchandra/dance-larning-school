@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import regIcon from '../../../assets/icon/key.png'
 import Social from "../../Shared/Social/Social";
 import Swal from "sweetalert2";
@@ -11,6 +11,11 @@ const Register = () => {
     const {registerUser} = useContext(AuthContext)
     const [showPass, setShowPass] = useState(false)
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const path = location?.state?.pathname || "/";
+
     const onSubmit = data => {
         console.log(data)
         registerUser(data?.email, data?.password)
@@ -20,6 +25,7 @@ const Register = () => {
                 displayName: data?.name, photoURL: data?.photo
             })
             reset()
+            navigate(path)
             Swal.fire({
                 icon: 'success',
                 title: 'User Register Successfully',
@@ -88,7 +94,7 @@ const Register = () => {
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     );
 };
 
