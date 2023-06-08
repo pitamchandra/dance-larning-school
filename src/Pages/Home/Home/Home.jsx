@@ -10,7 +10,7 @@ import Blogs from "../Blogs/Blogs";
 const Home = () => {
     return (
         <>
-            <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper rounded-lg">
                 <SwiperSlide>
                     <div className="relative z-0">
                         <img className="w-full h-[300px] md:h-auto" src={banner1} alt="" />
