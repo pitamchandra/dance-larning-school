@@ -8,8 +8,8 @@ const Footer = () => {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="mb-4">
-                <a className="normal-case text-xl">Dance Learning <span className="text-orange-500">School</span></a>
-                    <p className="text-gray-500 mt-2">The most dancing club. you can easily learn dance with us</p>
+                <Link to="/" className="normal-case text-xl">Dance Learning <span className="text-primary">School</span></Link>
+                    <p className="text-gray-500 mt-2 mb-4">The most dancing club. you can easily learn dance with us</p>
                     <p className="text-gray-500">123 Main Street, City, Country</p>
                     <p className="text-gray-500">Phone: 123-456-7890</p>
                     <p className="text-gray-500">Email: info@company.com</p>

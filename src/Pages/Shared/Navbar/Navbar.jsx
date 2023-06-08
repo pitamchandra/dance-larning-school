@@ -1,13 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
+    const user = '';
 
     const li = <>
-    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Home</NavLink></li>
-    <li><NavLink to="/instructors" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Instructors</NavLink></li>
-    <li><NavLink to="/classes" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Classes</NavLink></li>
-    <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Dashboard</NavLink></li>
-    <li><NavLink to="/login" className={({ isActive }) => isActive ? "text-orange-500" : ""}>Login</NavLink></li>
+    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-primary" : ""}>Home</NavLink></li>
+    <li><NavLink to="/instructors" className={({ isActive }) => isActive ? "text-primary" : ""}>Instructors</NavLink></li>
+    <li><NavLink to="/classes" className={({ isActive }) => isActive ? "text-primary" : ""}>Classes</NavLink></li>
+    {user && <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-primary" : ""}>Dashboard</NavLink></li>}
+    
     </>
 
 
@@ -22,7 +23,7 @@ const Navbar = () => {
                    {li}
                 </ul>
                 </div>
-                <a className="text-sm md:text-xl">Dance Learning <span className="text-orange-500">School</span></a>
+                <Link to='/' className="text-sm md:text-xl">Dance Learning <span className="text-primary">School</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -30,11 +31,20 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-            <div className="avatar">
-                <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                </div>
-            </div>
+                {
+                    user ? <>
+                    <div className="btn btn-primary">Logout</div>
+                    <div className="avatar ml-4">
+                        <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        </div>
+                    </div>
+                    </> : <>
+                    <Link to="/login" className="btn btn-primary">Login</Link>
+                    </>
+                }
+            
+            
             </div>
         </div>
     );
