@@ -13,6 +13,13 @@ import Register from './Pages/Login/Register/Register';
 import AuthProvider from './AuthProvider/AuthProvider';
 import Instructors from './Pages/Instructors/Instructors';
 import Classes from './Pages/Classes/Classes';
+import Dashboard from './Layout/Dashboard';
+import AllUser from './Pages/Dashboard/AllUser';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import AddClass from './Pages/Dashboard/Instructor/AddClass';
+import MyClass from './Pages/Dashboard/Instructor/MyClass';
+import Private from './Private/Private';
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -41,6 +48,25 @@ const router = createBrowserRouter([
         element: <Register></Register>
       }
     ]
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "allUser",
+        element: <AllUser></AllUser>
+      },
+      {
+        path: "addClass",
+        element: <AddClass></AddClass>
+      },
+      {
+        path: "myClass",
+        element: <Private><MyClass></MyClass></Private>
+      }
+    ]
   }
 ])
 
@@ -48,7 +74,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <div className='container mx-auto'>
       <AuthProvider>
+        <QueryClientProvider client={queryClient}>
         <RouterProvider router={router}></RouterProvider>
+        </QueryClientProvider>
       </AuthProvider>
     </div>
   </React.StrictMode>,

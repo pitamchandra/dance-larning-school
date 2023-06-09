@@ -24,14 +24,38 @@ const Register = () => {
             updateProfile(createdUser, {
                 displayName: data?.name, photoURL: data?.photo
             })
-            reset()
-            navigate(path)
-            Swal.fire({
-                icon: 'success',
-                title: 'User Register Successfully',
-                showConfirmButton: false,
-                timer: 1500
-            })
+            .then(() => {
+                const saveUser = { name: data.name, email: data.email }
+                fetch('http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                .then(res => res.json())
+                .then(data =>{
+                        console.log(data)
+                        if(data.insertedId)
+                        reset()
+                        Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User created successfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                        });
+                        navigate(path);
+                })    
+       })
+            // reset()
+            // navigate(path)
+            // Swal.fire({
+            //     icon: 'success',
+            //     title: 'User Register Successfully',
+            //     showConfirmButton: false,
+            //     timer: 1500
+            // })
         })
         .catch(error =>{
             Swal.fire({
