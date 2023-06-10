@@ -10,8 +10,7 @@ const url = `http://localhost:5000/addclass?email=${user.email}`
 useEffect(() =>{
     fetch (url)
     .then(res => res.json())
-    .then(data =>  setMyClass(data)
-    )
+    .then(data =>  setMyClass(data))
 },[url])
 
 
