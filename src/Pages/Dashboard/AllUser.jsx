@@ -44,7 +44,7 @@ const AllUser = () => {
                     title: `${user.name} is an Admin Now!`,
                     showConfirmButton: false,
                     timer: 1500
-                  })
+                })
             }
         })
     }
@@ -70,10 +70,10 @@ return (
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{ user.role === 'admin' ? 'admin' :
-                                <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button> 
+                                <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-primary  text-white"><FaUserShield></FaUserShield></button> 
                                 }</td>
                             <td>{ user.role === 'instractor' ? 'instractor' :
-                                <button onClick={() => handleMakeInstractor(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button> 
+                                <button onClick={() => handleMakeInstractor(user)} className="btn btn-ghost bg-primary text-white"><FaUserShield></FaUserShield></button> 
                                 }</td>
                             {/* <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td> */}
                         </tr>)

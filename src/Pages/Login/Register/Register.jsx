@@ -25,7 +25,7 @@ const Register = () => {
                 displayName: data?.name, photoURL: data?.photo
             })
             .then(() => {
-                const saveUser = { name: data.name, email: data.email }
+                const saveUser = { name: data?.name, photo: data?.photo, email: data?.email }
                 fetch('http://localhost:5000/user', {
                     method: 'POST',
                     headers: {
@@ -39,7 +39,6 @@ const Register = () => {
                         if(data.insertedId)
                         reset()
                         Swal.fire({
-                                position: 'top-end',
                                 icon: 'success',
                                 title: 'User created successfully.',
                                 showConfirmButton: false,

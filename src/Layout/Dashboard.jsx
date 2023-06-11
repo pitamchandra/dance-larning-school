@@ -7,7 +7,7 @@ const Dashboard = () => {
 
     const [isAdmin] = useAdmin()
     // const isAdmin = true
-    const isInstructor = false
+    const isInstructor = true
 
     return (
         <div>

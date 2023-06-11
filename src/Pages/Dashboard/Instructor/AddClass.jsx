@@ -17,6 +17,7 @@ const AddClass = () => {
     const seats = form.seats.value;
     const price = form.price.value;
     const email = user?.email;
+    const status = form.status.value;
 
     const addClass = {
       instructor,
@@ -25,7 +26,8 @@ const AddClass = () => {
       category,
       className,
       price: parseInt(price),
-      seats: parseInt(seats)
+      seats: parseInt(seats),
+      status
 
     }
     console.log(addClass)
@@ -97,6 +99,12 @@ const AddClass = () => {
                     <span className="label-text">Price</span>
                   </label>
                   <input name="price" type="number" placeholder="Price" className="input input-bordered" required/>
+                </div>
+                <div className="form-control w-1/2">
+                  <label className="label">
+                    <span className="label-text">Status</span>
+                  </label>
+                  <input name="status" type="text" defaultValue={"pending"} placeholder="status" className="input input-bordered" readOnly required/>
                 </div>
               </div> 
               <div className="form-control mt-6">
