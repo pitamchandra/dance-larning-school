@@ -30,18 +30,17 @@ const Dashboard = () => {
                                     
                                 </> : <>
                                 {
-                                    isInstructor?<>
+                                    isInstructor ? <>
                                         <h1 className='p-4 text-2xl text-white'>Instructor Dashboard</h1>
                                         <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
                                         <li><NavLink to="/dashboard/addClass"><FaEdit></FaEdit>Add a Class</NavLink></li>
                                         <li><NavLink to="/dashboard/myClass"><FaCalendarAlt></FaCalendarAlt> My Classes</NavLink></li>
-                                    </>:<>
+                                    </> : <>
                                     <h1 className='p-4 text-2xl text-white'>Student Dashboard</h1>
                                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
                                     <li><NavLink to="/dashboard/userhome"><FaClipboardCheck></FaClipboardCheck> My Selected Classes</NavLink></li>
                                     <li><NavLink to="/"><FaCheckCircle></FaCheckCircle> My Enrolled Classes</NavLink></li>
                                     <li><NavLink to="/"><FaWallet></FaWallet> Payment History</NavLink></li>
-                                
                                     </>
                                 }
                                 </>

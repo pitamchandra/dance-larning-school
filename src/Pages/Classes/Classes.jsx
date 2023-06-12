@@ -14,18 +14,13 @@ const Classes = () => {
             .then(data =>  {
                
                 console.log(data)
-        const approve = data.filter(cls => cls.status === "pending")
+                const approve = data.filter(cls => cls.status === "pending")
 
         setClass(approve)
         }
              
             )
         },[url])
-        console.log(Class)
-
-        // const AprroveClass = Class.filter(cls => console.log(cls));
-        // setClass(AprroveClass)
-        // console.log(Class)
 
 
 

@@ -6,6 +6,7 @@ import { Navigation } from "swiper";
 import banner1 from '../../../assets/banner/home-16.jpg'
 import banner2 from '../../../assets/banner/backgr.jpg'
 import Blogs from "../Blogs/Blogs";
+import Instructor from "../Instructor/Instructor";
 
 const Home = () => {
     return (
@@ -42,6 +43,9 @@ const Home = () => {
                     </div>
                 </SwiperSlide>
             </Swiper>
+            <div className="my-16">
+            <Instructor></Instructor>
+            </div>
             <Blogs></Blogs>
         </>
     );

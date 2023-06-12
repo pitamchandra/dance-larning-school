@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AllSingleClass = ({cls}) => {
     console.log(cls)
-    const  { catagory, email, instractor, photo, price, seats, status, _id } = cls
+    const  { category, email, instructor, photo, price, seats, status, _id } = cls
 const {user} = useContext(AuthContext)
 const navigate = useNavigate()
 // const [, refetch] = useCar
@@ -14,7 +14,7 @@ const navigate = useNavigate()
     const handleAddToCart = items => {
             console.log(items)
             if(user && user.email){
-                const cartItem = { catagory, email, instractor, photo, price, seats, status, _id }
+                const cartItem = { category, email, instructor, photo, price, seats, status, _id }
                 fetch('http://localhost:5000/carts', {
                     method: 'POST',
                     headers: {
@@ -57,8 +57,8 @@ const navigate = useNavigate()
                     <div className="card w-96 bg-base-100 shadow-xl">
                             <figure><img src={photo} className="h-80" alt="Shoes" /></figure>
                             <div className="card-body">
-                                    <h2 className="card-title">{catagory}</h2>
-                                    <h2 className="card-title">Instructor:   {instractor}</h2>
+                                    <h2 className="card-title">{category}</h2>
+                                    <h2 className="card-title">Instructor:   {instructor}</h2>
                                     <p>Available seats: <span>{seats}</span><br /> Price: <span>{price} </span>TK</p>
                                     <div className="card-actions justify-end">
                                             <button onClick={() => handleAddToCart(cls)} className="btn btn-primary">Select Now</button>
