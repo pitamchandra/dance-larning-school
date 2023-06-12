@@ -63,13 +63,13 @@ const AddClass = () => {
                     <label className="label">
                       <span className="label-text">Class Image</span>
                     </label>
-                    <input name="photo" type="text" placeholder="Class Image" className="input input-bordered" required/>
+                    <input name="photo" type="text" placeholder="Class Image" className="input input-bordered border-primary" required/>
                   </div>
                   <div className="form-control w-1/2">
                     <label className="label">
                       <span className="label-text"> Class name</span>
                     </label>
-                    <input name="category" type="text" placeholder="type class name" className="input input-bordered" required/>
+                    <input name="category" type="text" placeholder="type class name" className="input input-bordered border-primary" required/>
                     
                   </div>
               </div>
@@ -78,13 +78,13 @@ const AddClass = () => {
                   <label className="label">
                     <span className="label-text"> Instructor name</span>
                   </label>
-                  <input name="instructor" type="text" defaultValue={user?.displayName} placeholder=" Instructor name" className="input input-bordered" readOnly />
+                  <input name="instructor" type="text" defaultValue={user?.displayName} placeholder=" Instructor name" className="input input-bordered border-primary" readOnly />
                 </div>
                 <div className="form-control w-1/2">
                   <label className="label">
                     <span className="label-text"> Instructor email</span>
                   </label>
-                  <input name="email" type="email" defaultValue={user?.email} placeholder=" Instructor email" className="input input-bordered" readOnly />
+                  <input name="email" type="email" defaultValue={user?.email} placeholder=" Instructor email" className="input input-bordered border-primary" readOnly />
                 </div>
               </div>
               <div className="flex gap-5 mt-7">
@@ -92,19 +92,19 @@ const AddClass = () => {
                   <label className="label">
                     <span className="label-text"> Available seats</span>
                   </label>
-                  <input name="seats" type="number" placeholder=" Available seats" className="input input-bordered" required/>
+                  <input name="seats" type="number" placeholder=" Available seats" className="input input-bordered border-primary" required/>
                 </div>
                 <div className="form-control w-1/2">
                   <label className="label">
                     <span className="label-text">Price</span>
                   </label>
-                  <input name="price" type="number" placeholder="Price" className="input input-bordered" required/>
+                  <input name="price" type="number" placeholder="Price" className="input input-bordered border-primary" required/>
                 </div>
-                <div className="form-control w-1/2">
+                <div className="form-control w-1/2 hidden">
                   <label className="label">
                     <span className="label-text">Status</span>
                   </label>
-                  <input name="status" type="text" defaultValue={"pending"} placeholder="status" className="input input-bordered" readOnly required/>
+                  <input name="status" type="text" defaultValue={"pending"} placeholder="status" className="" readOnly required/>
                 </div>
               </div> 
               <div className="form-control mt-6">

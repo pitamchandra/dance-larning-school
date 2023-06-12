@@ -21,7 +21,7 @@ const Instructor = () => {
                     instructors.slice(0, 6).map(instructor => <div key={instructor._id}>
                     <div  className="w-full bg-gray-300 text-center border border-primary rounded-xl">
                     <figure className="">
-                        <img  src={instructor?.photo} alt="photo" className=" w-full rounded-t-xl" />
+                        <img src={instructor?.photo} alt="photo" className="h-96 w-full rounded-t-xl" />
                     </figure>
                     <h2 className="text-3xl text-white py-5 bg-primary rounded-b-xl capitalize">{instructor?.name}</h2>
                     </div>
