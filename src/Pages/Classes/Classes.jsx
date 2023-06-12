@@ -4,7 +4,7 @@ import AllSingleClass from "./AllSingleClass";
 
 
 const Classes = () => {
-    const { user } = useContext(AuthContext)
+        const { user } = useContext(AuthContext)
         console.log(user?.email)
         const [Class, setClass] = useState([])
         const url = `http://localhost:5000/addclass/`
@@ -25,7 +25,7 @@ const Classes = () => {
 
 
         return (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 py-32">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
                       {
                         Class.map(cls => <AllSingleClass key={cls._id}
                         cls ={cls}></AllSingleClass>)

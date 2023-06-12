@@ -54,14 +54,14 @@ const navigate = useNavigate()
         
     return (
             <div>
-                    <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={photo} className="h-80" alt="Shoes" /></figure>
-                            <div className="card-body">
-                                    <h2 className="card-title">{category}</h2>
-                                    <h2 className="card-title">Instructor:   {instructor}</h2>
+                    <div className="w-full bg-gray-300 text-center border border-primary rounded-xl">
+                            <figure><img src={photo} className="h-80 w-full rounded-xl" alt="Shoes" /></figure>
+                            <div className="card-body text-left">
+                                    <h2 className="card-title font-bold">{category}</h2>
+                                    <h2 className="card-title capitalize"> <strong>Instructor:</strong>{instructor}</h2>
                                     <p>Available seats: <span>{seats}</span><br /> Price: <span>{price} </span>TK</p>
-                                    <div className="card-actions justify-end">
-                                            <button onClick={() => handleAddToCart(cls)} className="btn btn-primary">Select Now</button>
+                                    <div className="card-actions">
+                                        <button onClick={() => handleAddToCart(cls)} className="btn btn-primary btn-sm">Select Now</button>
                                     </div>
                             </div>
                     </div>

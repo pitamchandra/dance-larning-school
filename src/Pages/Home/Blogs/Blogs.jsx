@@ -6,7 +6,9 @@ import pic3 from '../../../assets/blogs/blog3.jpg'
 const Blogs = () => {
 
     return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-16">
+        <>
+        <h3 className="text-3xl text-black text-center mb-10">Our Blogs</h3>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div className="card hover:bg-slate-300 duration-500 bg-slate-100 border border-primary">
             <figure className="">
                 <img src={pic1} alt="Shoes" className="rounded-xl" />
@@ -44,6 +46,7 @@ const Blogs = () => {
             </div>
             </div>
         </div>
+        </>
     );
 };
 

@@ -7,6 +7,7 @@ import banner1 from '../../../assets/banner/home-16.jpg'
 import banner2 from '../../../assets/banner/backgr.jpg'
 import Blogs from "../Blogs/Blogs";
 import Instructor from "../Instructor/Instructor";
+import Class from "../Class/Class";
 
 const Home = () => {
     return (
@@ -43,10 +44,15 @@ const Home = () => {
                     </div>
                 </SwiperSlide>
             </Swiper>
+            <div className="mt-16">
+            <Class></Class>
+            </div>
             <div className="my-16">
             <Instructor></Instructor>
             </div>
+            <div className="mb-16">
             <Blogs></Blogs>
+            </div>
         </>
     );
 };
