@@ -22,6 +22,7 @@ import Private from './Private/Private';
 import UserSelectedClass from './Pages/Dashboard/Users/UserSelectedClass';
 import SelectedClass from './Pages/Dashboard/Student/SelectedClass/SelectedClass';
 import Update from './Pages/Dashboard/Instructor/Update';
+import ManageClass from './Pages/Dashboard/Users/ManageClass';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
         element:<Update/>,
         loader:({params}) => fetch(`http://localhost:5000/addClass/${params.id}`)
       },
+      {
+        path: 'manageClass',
+        element: <ManageClass></ManageClass>
+      }
     ]
   }
 ])
