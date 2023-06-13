@@ -2,12 +2,14 @@ import { FaWallet, FaCalendarAlt, FaHome, FaUsers, FaClipboardList, FaEdit, FaCl
 
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from '../Hook/useAdmin';
+import useInstructor from '../Hook/useInstructor';
 
 const Dashboard = () => {
 
     const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructor()
     // const isAdmin = true
-    const isInstructor = true
+    
 
     return (
         <div>
@@ -38,7 +40,7 @@ const Dashboard = () => {
                                     </> : <>
                                     <h1 className='p-4 text-2xl text-white'>Student Dashboard</h1>
                                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
-                                    <li><NavLink to="/dashboard/userhome"><FaClipboardCheck></FaClipboardCheck> My Selected Classes</NavLink></li>
+                                    <li><NavLink to="/dashboard/selectedClass"><FaClipboardCheck></FaClipboardCheck> My Selected Classes</NavLink></li>
                                     <li><NavLink to="/"><FaCheckCircle></FaCheckCircle> My Enrolled Classes</NavLink></li>
                                     <li><NavLink to="/"><FaWallet></FaWallet> Payment History</NavLink></li>
                                     </>
