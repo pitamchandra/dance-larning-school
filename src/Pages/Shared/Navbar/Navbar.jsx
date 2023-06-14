@@ -21,16 +21,16 @@ const Navbar = () => {
     }
 
     const li = <>
-    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-primary" : ""}>Home</NavLink></li>
-    <li><NavLink to="/instructors" className={({ isActive }) => isActive ? "text-primary" : ""}>Instructors</NavLink></li>
-    <li><NavLink to="/classes" className={({ isActive }) => isActive ? "text-primary" : ""}>Classes</NavLink></li>
-    {user && <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-primary" : ""}>Dashboard</NavLink></li>}
+    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-primary text-xl bg-transparent " : "text-xl"}>Home</NavLink></li>
+    <li><NavLink to="/instructors" className={({ isActive }) => isActive ? "text-primary text-xl bg-transparent " : "text-xl"}>Instructors</NavLink></li>
+    <li><NavLink to="/classes" className={({ isActive }) => isActive ? "text-primary text-xl bg-transparent " : "text-xl"}>Classes</NavLink></li>
+    {user && <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "text-primary text-xl bg-transparent" : "text-xl"}>Dashboard</NavLink></li>}
     
     </>
 
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 py-4">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">

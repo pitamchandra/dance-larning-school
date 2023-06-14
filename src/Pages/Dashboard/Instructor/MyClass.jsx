@@ -17,7 +17,12 @@ useEffect(() =>{
 console.log("form my class ", myClass);
 
 return (
-    <div className="grid md:grid-cols-2 gap-7">
+    <>
+    <div className='text-center'>
+                        <h3 className="text-3xl text-black capitalize font-semibold">my classes</h3>
+                        <div className="divider w-14 m-auto h-1 mt-2 bg-primary"></div> 
+                </div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-10 w-full">
         {
             myClass.map(cls=> <SingleClass
                 key={cls._id}
@@ -26,6 +31,7 @@ return (
             </SingleClass>)
         }
     </div>
+    </>
 );
 };
 

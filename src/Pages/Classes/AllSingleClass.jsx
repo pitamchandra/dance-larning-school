@@ -8,7 +8,7 @@ import useCart from "../../Hook/useCart";
 
 
 const AllSingleClass = ({cls}) => {
-    console.log(cls)
+    console.log( 'from ',cls)
     const  { category, instructor, photo, price, seats, status, _id } = cls
     const [isAdmin] = useAdmin()
     const [isInstractor] = useInstructor()

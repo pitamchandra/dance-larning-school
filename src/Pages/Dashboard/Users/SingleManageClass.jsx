@@ -58,14 +58,14 @@ const SingleManageClass = ({cls}) => {
     return (
             <div>
                     <div className="card w-full bg-base-100 shadow-xl">
-                            <figure><img src={photo} className="h-80" /></figure>
+                            <figure><img src={photo} className="h-80 w-full" /></figure>
                             <div className="card-body">
                                     <h2 className="card-title">{category}</h2>
-                                    <h2 className="card-title">Instructor:   {instructor}</h2>
-                                    <h6 className="card-title">Email: {email}</h6>
-                                    <p>Available seats: <span>{seats}</span><br /> Price: <span>{price} </span>TK
+                                    <h2 className="card-title">Instructor: {instructor}</h2>
+                                    <p>Email: {email}</p>
+                                    <p>Available seats: <span>{seats}</span><br /> Price: <span>{price}</span>TK
                                     </p>
-                                    <h6 className="font-bold">Status : {status}</h6>
+                                    <p className="font-bold">Status : {status}</p>
                                     <div className="gap-6">
                                             {/* <button className="btn mr-3 text-white btn-primary">{status}</button>
                                     <button className="btn mr-3 text-white btn-primary">{status}</button>
@@ -74,13 +74,13 @@ const SingleManageClass = ({cls}) => {
                                             {statuses === "pending" && (
                                                     <>
                                                             <button
-                                                                    className="btn btn-primary"
+                                                                    className="btn btn-sm btn-primary mr-3"
                                                                     onClick={() => updateStatus("approved")}
                                                             >
                                                                     Approve
                                                             </button>
                                                             <button
-                                                                    className="btn btn-error"
+                                                                    className="btn btn-sm btn-error"
                                                                     onClick={() => updateStatus("denied")}
                                                             >
                                                                     Deny
@@ -89,17 +89,17 @@ const SingleManageClass = ({cls}) => {
                                             )}
 
                                             {statuses === "approved" && (
-                                                    <button className="btn btn-primary" disabled>
+                                                    <button className="btn btn-sm btn-primary" disabled>
                                                             Approved
                                                     </button>
                                             )}
                                             {statuses === "denied" && (
-                                                    <button className="btn btn-error" disabled>
+                                                    <button className="btn btn-sm btn-error" disabled>
                                                             Denied
                                                     </button>
                                             )}
                                             {!statuses && (
-                                                    <button className="btn btn-primary" disabled>
+                                                    <button className="btn btn-sm btn-primary" disabled>
                                                             Pending
                                                     </button>
                                             )}
