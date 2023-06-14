@@ -7,7 +7,10 @@ const Blogs = () => {
 
     return (
         <>
-        <h3 className="text-3xl text-black text-center mb-10">Our Blogs</h3>
+        <div className='text-center mb-10'>
+            <h3 className="text-3xl text-black ">Our Blogs</h3>
+            <div className="divider w-14 m-auto h-1 mt-2 bg-primary"></div> 
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div className="card hover:bg-slate-300 duration-500 bg-slate-100 border border-primary">
             <figure className="">

@@ -4,7 +4,7 @@ import AllSingleClass from "../../Classes/AllSingleClass";
 
 const Class = () => {
     const [Class, setClass] = useState([])
-        const url = `http://localhost:5000/addclass/`
+        const url = `https://dance-learning-school-server-ochre.vercel.app/addclass/`
         useEffect(() =>{
             fetch (url)
             .then(res => res.json())
@@ -20,7 +20,10 @@ const Class = () => {
         },[url])
     return (
         <>
-            <h3 className="text-3xl text-black text-center mb-10">Most Popular Classes</h3>
+            <div className='text-center mb-10'>
+            <h3 className="text-3xl text-black ">Most Popular Classes</h3>
+            <div className="divider w-14 m-auto h-1 mt-2 bg-primary"></div> 
+        </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                       {
                         Class.slice(0, 6).map(cls => <AllSingleClass key={cls._id}

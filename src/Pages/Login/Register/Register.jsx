@@ -26,7 +26,7 @@ const Register = () => {
             })
             .then(() => {
                 const saveUser = { name: data?.name, photo: data?.photo, email: data?.email }
-                fetch('http://localhost:5000/user', {
+                fetch('https://dance-learning-school-server-ochre.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -47,14 +47,7 @@ const Register = () => {
                         navigate(path);
                 })    
        })
-            // reset()
-            // navigate(path)
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'User Register Successfully',
-            //     showConfirmButton: false,
-            //     timer: 1500
-            // })
+            
         })
         .catch(error =>{
             Swal.fire({

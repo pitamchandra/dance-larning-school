@@ -7,7 +7,7 @@ const Instructor = () => {
     const [instructors, setInstructors] = useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/users/instractor`)
+        fetch(`https://dance-learning-school-server-ochre.vercel.app/users/instractor`)
         .then(res=> res.json())
         .then(data =>{
             setInstructors(data)
@@ -16,7 +16,11 @@ const Instructor = () => {
 console.log(instructors);
     return (
         <>
-        <h3 className="text-3xl text-black text-center mb-10 ">Most Popular Instructor</h3>
+          <div className='text-center mb-10'>
+            <h3 className="text-3xl text-black ">Most Popular Instructor</h3>
+            <div className="divider w-14 m-auto h-1 mt-2 bg-primary"></div> 
+        </div>
+        
             <div className="grid md:grid-cols-3 gap-10 ">
                 {
                     instructors.slice(0, 6).map(instructor => <div key={instructor._id}>

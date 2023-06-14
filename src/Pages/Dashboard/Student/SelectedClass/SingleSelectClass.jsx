@@ -10,8 +10,8 @@ const SingleSelectClass = ({selected, handleDelete}) => {
       };
     return (
             <div>
-                  <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={photo} className="h-80" /></figure>
+                  <div className="card w-full bg-base-100 shadow-xl ">
+                            <figure><img src={photo} className="h-80 w-full" /></figure>
                             <div className="card-body">
                                     <h2 className="card-title">{category}</h2>
                                     <h2 className="card-title">Instructor:   {instructor}</h2>
@@ -19,7 +19,6 @@ const SingleSelectClass = ({selected, handleDelete}) => {
                                     <div className="flex justify-between">
                                     <button onClick={()=>handlePayment(selected._id)} className="btn btn-primary mr-10 text-white">Payment</button>
                                             <button className="btn bg-red-700 text-white" onClick={()=> handleDelete(_id)}><FaTrashAlt></FaTrashAlt></button>
-                                            
                                     </div>
                             </div>
                     </div>  

@@ -24,7 +24,7 @@ const Update = () => {
             
         }
         
-        fetch(`http://localhost:5000/addclass/${_id}`,{
+        fetch(`https://dance-learning-school-server-ochre.vercel.app/addclass/${_id}`,{
             method:"PUT",
             headers:{
                 "content-type":"application/json"

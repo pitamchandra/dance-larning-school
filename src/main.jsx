@@ -81,7 +81,7 @@ const router = createBrowserRouter([
       {
         path:"myclass/:id",
         element:<Update/>,
-        loader:({params}) => fetch(`http://localhost:5000/addClass/${params.id}`)
+        loader:({params}) => fetch(`https://dance-learning-school-server-ochre.vercel.app/addClass/${params.id}`)
       },
       {
         path: 'manageClass',

@@ -33,7 +33,7 @@ const AddClass = () => {
     console.log(addClass)
     // console.log(addToys)
 
-    fetch("http://localhost:5000/addclass", {
+    fetch("https://dance-learning-school-server-ochre.vercel.app/addclass", {
       method: "POST",
       headers: {
         "content-type": "application/json"

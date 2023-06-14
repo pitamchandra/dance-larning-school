@@ -19,7 +19,7 @@ const AllSingleClass = ({cls}) => {
     const handleAddToCart = items => {
             if(user && user.email){
                 const cartItem = { category, email: user?.email, instructor, photo, price, seats, status  }
-                fetch('http://localhost:5000/carts', {
+                fetch('https://dance-learning-school-server-ochre.vercel.app/carts', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -43,7 +43,7 @@ const AllSingleClass = ({cls}) => {
             }
             else{
                 Swal.fire({
-                    title: 'Please login to Enoroll select',
+                    title: 'Please enroll for selected',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -59,8 +59,8 @@ const AllSingleClass = ({cls}) => {
         
     return (
             <div>
-                    <div className="card dark light w-96 bg-base-100 shadow-xl">
-                            <figure><img src={photo} className="h-80" alt="Shoes" /></figure>
+                    <div className="card dark light w-full bg-base-100 shadow-xl border-primary border hover:bg-slate-300 duration-500">
+                            <figure><img src={photo} className="h-80 w-full" alt="Shoes" /></figure>
                             <div className="card-body">
                                     <h2 className="card-title">{category}</h2>
                                     <h2 className="card-title">Instructor:   {instructor}</h2>

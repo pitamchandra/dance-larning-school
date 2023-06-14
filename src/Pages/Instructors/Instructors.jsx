@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/users/instractor')
+        fetch('https://dance-learning-school-server-ochre.vercel.app/users/instractor')
         .then(res=> res.json())
         .then(data =>{
             setInstructors(data)
@@ -13,6 +14,10 @@ const Instructors = () => {
     }, [])
     return (
         <>
+        <Helmet>
+            <title>Home : Instructor</title>
+            <meta name="description" content="Nested component" />
+        </Helmet>
             <div className="grid md:grid-cols-3 gap-10 my-12">
                 {
                     instructors.map(instructor => <div key={instructor._id}>

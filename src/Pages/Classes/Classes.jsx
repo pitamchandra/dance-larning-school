@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import AllSingleClass from "./AllSingleClass";
+import { Helmet } from "react-helmet";
 
 
 const Classes = () => {
         const { user } = useContext(AuthContext)
         console.log(user?.email)
         const [Class, setClass] = useState([])
-        const url = `http://localhost:5000/addclass/`
+        const url = `https://dance-learning-school-server-ochre.vercel.app/addclass/`
         useEffect(() =>{
             fetch (url)
             .then(res => res.json())
@@ -25,12 +26,18 @@ const Classes = () => {
 
 
         return (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-16">
+                <>
+                <Helmet>
+                        <title>Home: Classes</title>
+                        <meta name="description" content="Nested component" />
+                </Helmet>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-16">
                       {
                         Class.map(cls => <AllSingleClass key={cls._id}
                         cls ={cls}></AllSingleClass>)
                       }  
                 </div>
+                </>
         );
 };
 

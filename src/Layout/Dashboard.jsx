@@ -3,6 +3,7 @@ import { FaWallet, FaCalendarAlt, FaHome, FaUsers, FaClipboardList, FaEdit, FaCl
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from '../Hook/useAdmin';
 import useInstructor from '../Hook/useInstructor';
+import { Helmet } from 'react-helmet';
 
 const Dashboard = () => {
 
@@ -12,6 +13,11 @@ const Dashboard = () => {
     
 
     return (
+        <>
+        <Helmet>
+            <title>Dashboard</title>
+            <meta name="description" content="Nested component" />
+        </Helmet>
         <div>
             <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -51,6 +57,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

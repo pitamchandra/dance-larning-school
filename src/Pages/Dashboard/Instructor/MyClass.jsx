@@ -7,7 +7,7 @@ const MyClass = () => {
    const { user } = useContext(AuthContext)
 
 const [myClass, setMyClass] = useState([])
-const url = `http://localhost:5000/addclass?email=${user.email}`
+const url = `https://dance-learning-school-server-ochre.vercel.app/addclass?email=${user.email}`
 useEffect(() =>{
     fetch (url)
     .then(res => res.json())

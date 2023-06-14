@@ -31,7 +31,7 @@ const SingleManageClass = ({cls}) => {
             const form=event.target;
             const name=form.name.value
             const feedback={name}
-            fetch('http://localhost:5000/feedback', {
+            fetch('https://dance-learning-school-server-ochre.vercel.app/feedback', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -57,7 +57,7 @@ const SingleManageClass = ({cls}) => {
 
     return (
             <div>
-                    <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card w-full bg-base-100 shadow-xl">
                             <figure><img src={photo} className="h-80" /></figure>
                             <div className="card-body">
                                     <h2 className="card-title">{category}</h2>

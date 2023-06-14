@@ -8,10 +8,15 @@ import banner2 from '../../../assets/banner/backgr.jpg'
 import Blogs from "../Blogs/Blogs";
 import Instructor from "../Instructor/Instructor";
 import Class from "../Class/Class";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     return (
         <>
+        <Helmet>
+            <title>Dance Learning School</title>
+            <meta name="description" content="Nested component" />
+        </Helmet>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper rounded-lg">
                 <SwiperSlide>
                     <div className="relative z-0">

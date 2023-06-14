@@ -5,11 +5,11 @@ import Swal from "sweetalert2";
 
 const AllUser = () => {
     const {data: users= [], refetch}= useQuery(["user"], async()=>{
-        const res = await fetch("http://localhost:5000/users")
+        const res = await fetch("https://dance-learning-school-server-ochre.vercel.app/users")
         return res.json()
     } )
     const handleMakeAdmin = user =>{
-        fetch(`http://localhost:5000/user/admin/${user._id}`,{
+        fetch(`https://dance-learning-school-server-ochre.vercel.app/user/admin/${user._id}`,{
             method: "PATCH"
             
         })
@@ -29,7 +29,7 @@ const AllUser = () => {
         })
     }
     const handleMakeInstractor= user =>{
-        fetch(`http://localhost:5000/user/instractor/${user._id}`,{
+        fetch(`https://dance-learning-school-server-ochre.vercel.app/user/instractor/${user._id}`,{
             method: "PATCH"
             
         })
