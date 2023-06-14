@@ -1,11 +1,9 @@
 import { useRef, useState } from "react";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import Swal from "sweetalert2";
-import useCart from "../../../Hook/useCart";
 
 
 const SingleManageClass = ({cls}) => {
-    const [, refetch] = useCart()
     const { category, email, instructor, photo, price, seats, status } = cls
     const [statuses, setStatus] = useState(cls.status);
     const [axiosSecure] = useAxiosSecure()

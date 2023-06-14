@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 
 const Instructor = () => {
-
+    // const {user} = useContext(AuthContext)
     const [instructors, setInstructors] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/users/instractor')
+        fetch(`http://localhost:5000/users/instractor`)
         .then(res=> res.json())
         .then(data =>{
             setInstructors(data)
         })
     }, [])
-
+console.log(instructors);
     return (
         <>
         <h3 className="text-3xl text-black text-center mb-10 ">Most Popular Instructor</h3>
@@ -27,7 +28,6 @@ const Instructor = () => {
                     </div>
                 </div>)
                 }
-            
         </div>
         </>
     );

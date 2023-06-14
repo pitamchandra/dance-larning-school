@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Update = () => {
@@ -35,53 +36,63 @@ const Update = () => {
         .then(data =>{
             console.log(data)
             if(data.modifiedCount > 0){
-              alert("update  success")
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User Login Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             }
         })
     }
 
         return (
-                <div>
-                        <h1 className="text-2xl font-bold">Update your class now!</h1>
-                      <div className="hero min-h-screen ">
-            <form onSubmit={handleUpdate} className="card flex-shrink-0 w-full max-w-2xl shadow-2xl bg-base-100">
-            <div className="card-body">
-                <div className="form-control">
-                <label className="label">
-                    <span className="label-text">Photo url</span>
-                </label>
-                <input type="text" name='photo'  placeholder="Photo url"  defaultValue={photo} className="input input-bordered" />
-                <label className="label">
-                    <span className="label-text">Available Seats</span>
-                </label>
-                <input type="number" placeholder="Seats" name='seats'  defaultValue={seats}  className="input input-bordered" />
-                <label className="label">
-                    <span className="label-text">Price</span>
-                </label>
-                <input type="number"  name='price'  defaultValue={price}  className="input input-bordered" />
-                </div>
-                <label className="label">
-                    <span className="label-text">Category</span>
-                </label>
-                <select name="category" className="select select-primary w-full max-w-xs" required>
-                        <option disabled selected>{category}</option>
-                        <option>Folk dance</option>
-                        <option>Tap Dance </option>
-                        <option>Belly dance</option>
-                        <option>Ballet dance</option>
-                        <option>Contemporary dance</option>
-                        <option>Disco dance</option>
-                        <option>Manipuri Dance</option>
-                        <option>Bollywood dance</option>
-                        </select>
-                </div>
-                
-                <div className="form-control mt-6">
-                <button className="btn btn-primary">Update Class</button>
-                </div>
-            </form>
-            </div>
-        </div>
+                <>
+                    <div className="w-2/3">
+                    <h1 className='p-4 text-4xl text-center'>Update your class now!</h1>
+                        <form onSubmit={handleUpdate} className="w-full">
+                            <div className="flex gap-5 mt-7">
+                                <div className="form-control w-1/2">
+                                    <label className="label">
+                                    <span className="label-text">Class Image</span>
+                                    </label>
+                                    <input name="photo" type="text" placeholder="Class Image" defaultValue={photo} className="input input-bordered border-primary" required/>
+                                </div>
+                                <div className="form-control w-1/2">
+                                    <label className="label">
+                                    <span className="label-text"> Class name</span>
+                                    </label>
+                                    <input name="category" type="text" placeholder="type class name" defaultValue={category} className="input input-bordered border-primary" required/>
+                                    
+                                </div>
+                            </div>
+                            <div className="flex gap-5 mt-7">
+                            <div className="form-control w-1/2">
+                                <label className="label">
+                                    <span className="label-text"> Available seats</span>
+                                </label>
+                                <input name="seats" type="number" placeholder=" Available seats" defaultValue={seats} className="input input-bordered border-primary" required/>
+                                </div>
+                                <div className="form-control w-1/2">
+                                <label className="label">
+                                    <span className="label-text">Price</span>
+                                </label>
+                                <input name="price" type="number" placeholder="Price" defaultValue={price} className="input input-bordered border-primary" required/>
+                                </div>
+                                <div className="form-control w-1/2 hidden">
+                                <label className="label">
+                                    <span className="label-text">Status</span>
+                                </label>
+                                <input name="status" type="text" defaultValue={"pending"} placeholder="status" className="" readOnly required/>
+                                </div>
+                            </div> 
+                            <div className="form-control mt-6">
+                            <button className="btn btn-primary">Update Class</button>
+                            </div>
+                        </form>
+                    </div>
+                       
+        </>
 )};
 
 export default Update;

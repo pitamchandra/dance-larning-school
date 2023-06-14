@@ -5,8 +5,9 @@ const SingleSelectClass = ({selected, handleDelete}) => {
     const  { category,  instructor, photo, price, seats, _id } = selected
         
         
-   
-    
+    const handlePayment = (id) => {
+        localStorage.setItem("id", id);
+      };
     return (
             <div>
                   <div className="card w-96 bg-base-100 shadow-xl">
@@ -16,7 +17,7 @@ const SingleSelectClass = ({selected, handleDelete}) => {
                                     <h2 className="card-title">Instructor:   {instructor}</h2>
                                     <p>Available seats: <span>{seats}</span><br /> Price: <span>{price} </span>TK <br /></p>
                                     <div className="flex justify-between">
-                                    <button className="btn btn-primary mr-10 text-white">Payment</button>
+                                    <button onClick={()=>handlePayment(selected._id)} className="btn btn-primary mr-10 text-white">Payment</button>
                                             <button className="btn bg-red-700 text-white" onClick={()=> handleDelete(_id)}><FaTrashAlt></FaTrashAlt></button>
                                             
                                     </div>
