@@ -57,9 +57,9 @@ const SingleManageClass = ({cls}) => {
 
     return (
             <div>
-                    <div className="card w-full bg-base-100 shadow-xl">
-                            <figure><img src={photo} className="h-80 w-full" /></figure>
-                            <div className="card-body">
+                    <div className="card w-full bg-base-100 border border-primary shadow-xl">
+                            <figure><img src={photo} className="h-60 w-full" /></figure>
+                            <div className="p-3">
                                     <h2 className="card-title">{category}</h2>
                                     <h2 className="card-title">Instructor: {instructor}</h2>
                                     <p>Email: {email}</p>
@@ -89,7 +89,7 @@ const SingleManageClass = ({cls}) => {
                                             )}
 
                                             {statuses === "approved" && (
-                                                    <button className="btn btn-sm btn-primary" disabled>
+                                                    <button className="btn btn-sm btn-primary mb-3 mt-4" disabled>
                                                             Approved
                                                     </button>
                                             )}

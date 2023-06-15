@@ -17,6 +17,8 @@ const Register = () => {
     const path = location?.state?.pathname || "/";
 
     const onSubmit = data => {
+        console.log(errors);
+        console.log("errors");
         console.log(data)
         registerUser(data?.email, data?.password)
         .then((result) => {
@@ -86,8 +88,8 @@ const Register = () => {
                     {errors.email && <span className="text-red-500">email field is required</span>}
                     </div>
                     <div className="form-control">
-                    <input type={`${showPass ? 'text' : 'password'}`} placeholder="password" {...register("password",{ required: true, minLength: 6 }, { pattern:  /^(?=.*[A-Z])(?=.*[!@#$%^&*])/ })} className="input input-bordered" />
-                    {errors.password && <span className="text-red-500">password should be at least 6 charter, one uppercase and one special charter</span>}
+                    <input type={`${showPass ? 'text' : 'password'}`} placeholder="password" {...register("password", { required: true , pattern:  /^(?=.{6,})(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/ })} className="input input-bordered" />
+                    {errors.password?.type === "pattern" && <span className="text-red-500">password should be at least 6 charter, one uppercase and one special charter</span>}
                     </div>
                     <div className="form-control">
                     <input type={`${showPass ? 'text' : 'password'}`} placeholder="confirm password" {...register("confirm", {validate: (value) => value === password || 'Passwords do not match',}, { required: true })} className="input input-bordered" />

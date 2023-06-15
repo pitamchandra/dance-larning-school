@@ -58,7 +58,7 @@ const SelectedClass = () => {
                 <h3 className="text-3xl text-black ">My Selected class</h3>
                 <div className="divider w-14 m-auto h-1 mt-2 bg-primary"></div> 
             </div>
-              <div className="grid md:grid-cols-2 gap-10 my-10 w-full">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-10 w-full">
                   {
                     selectClass.map(selected => <SingleSelectClass
                     key={selected._id}
