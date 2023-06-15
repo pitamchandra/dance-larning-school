@@ -13,7 +13,7 @@ const Instructor = () => {
             setInstructors(data)
         })
     }, [])
-console.log(instructors);
+    
     return (
         <>
           <div className='text-center mb-10'>

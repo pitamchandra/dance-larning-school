@@ -32,9 +32,8 @@ const AllSingleClass = ({cls}) => {
                     if(data.insertedId){
                         refetch(); 
                         Swal.fire({
-                            position: 'top-end',
                             icon: 'success',
-                            title: 'Enroll added..',
+                            title: 'Selected Class',
                             showConfirmButton: false,
                             timer: 1500
                           })

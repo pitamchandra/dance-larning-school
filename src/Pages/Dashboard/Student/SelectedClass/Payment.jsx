@@ -4,7 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import useCart from "../../../../Hook/useCart";
 import CheckOutForm from "./CheckOutForm";
 import { useParams } from "react-router-dom";
-const stripePromise = loadStripe(`${import.meta.env.VITE_Payment_Secret_key}`);
+const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 const Payment = () => {
   const [cart] = useCart()
   const { id } = useParams()

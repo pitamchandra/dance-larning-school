@@ -17,87 +17,84 @@ const CheckOutForm = ({course}) => {
     const [transactionId, setTransactionId] = useState('');
     const navigate=useNavigate()
 
+
+
 useEffect(() => {
-    console.log(course)
-        if (course && course.price > 0) {
-            
-            axiosSecure.post('/create-payment',{ price: course.price })
-                .then(res => {
-                    setClientSecret(res.data.clientSecret);
-                })
-        }
-    }, [course, axiosSecure])
+    if (course && course.price > 0) {
+        axiosSecure.post('/create-payment',{ price: course.price })
+            .then(res => {
+                setClientSecret(res.data.clientSecret);
+            })
+    }
+}, [course, axiosSecure])
+
 const handleSubmit = async (event) => {
-        event.preventDefault();
+    event.preventDefault();
 
-        if (!stripe || !elements) {
-            return
-        }
-const card = elements.getElement(CardElement);
-        if (card === null) {
-            return
-        }
+    if (!stripe || !elements) {
+        return
+    }
 
-        const { error } = await stripe.createPaymentMethod({
-            type: 'card',
-            card
-        })
-if (error) {
-            console.log('error', error)
-            setCardError(error.message);
-        }
-        else {
-            setCardError('');
-        }
-setProcessing(true)
+    const card = elements.getElement(CardElement);
+    if (card === null) {
+        return
+    }
+const { error } = await stripe.createPaymentMethod({
+        type: 'card',
+        card
+    })
 
-        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
-            clientSecret,
-            {
-                payment_method: {
-                    card: card,
-                    billing_details: {
-                        email: user?.email || 'unknown',
-                        name: user?.displayName || 'anonymous'
-                    },
+    if (error) {
+        console.log('error', error)
+        setCardError(error.message);
+    }
+    else {
+        setCardError('');
+        // console.log('payment method', paymentMethod)
+    }
+
+    setProcessing(true)
+const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    email: user?.email || 'unknown',
+                    name: user?.displayName || 'anonymous'
                 },
             },
-        );
+        },
+    );
 if (confirmError) {
-            console.log(confirmError);
+        console.log(confirmError);
+    }
+console.log('payment intent', paymentIntent)
+    setProcessing(false)
+    if (paymentIntent.status === 'succeeded') {
+        setTransactionId(paymentIntent.id);
+        // save payment information to the server
+        const payment = {
+            email: user?.email,
+            transactionId: paymentIntent.id,
+            price:course.price,
+            date: new Date(),
+            quantity: course.length,
+            cartItems: course._id,
+
         }
-
-        console.log('payment intent', paymentIntent)
-        setProcessing(false)
-
-if (paymentIntent.status === 'succeeded') {
-            setTransactionId(paymentIntent.id);
-            const payment = {
-                email: user?.email,
-                transactionId: paymentIntent.id,
-                price:course.price,
-date: new Date(),
-                quantity: course.length,
-                cartItems: course._id,
-                menuItems: course.menuItemId,
-                photo:course.photo,
-                status: 'enroll',
-                itemNames: course.name
-            }
-axiosSecure.post('/payments', payment)
-                .then(res => {
-                    if (res.data.insertResult.insertedId) {
-                        Swal.fire(
-                            'Payment successful!',
-                            'Go to enroll classes to see your course',
-                            'success'
-                          )
-                    }
-                })
-            navigate('/dashboard/selectclass')
-        }
-
-    }    
+            axiosSecure.post('/payments', payment)
+            .then(res => {
+                if (res.data.insertResult.insertedId) {
+                    Swal.fire(
+                        'Payment successful!',
+                        'Go to enroll classes to see your course',
+                        'success'
+                      )
+                }
+            })
+            navigate('/dashboard/selectedClass')
+    }}
 
 
 return (

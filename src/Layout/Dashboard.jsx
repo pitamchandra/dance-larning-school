@@ -47,7 +47,7 @@ const Dashboard = () => {
                                     <h1 className='p-4 text-2xl text-white'>Student Dashboard</h1>
                                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
                                     <li><NavLink to="/dashboard/selectedClass"><FaClipboardCheck></FaClipboardCheck> My Selected Classes</NavLink></li>
-                                    <li><NavLink to="/"><FaCheckCircle></FaCheckCircle> My Enrolled Classes</NavLink></li>
+                                    <li><NavLink to="/dashboard/enrolledClass"><FaCheckCircle></FaCheckCircle> My Enrolled Classes</NavLink></li>
                                     <li><NavLink to="/"><FaWallet></FaWallet> Payment History</NavLink></li>
                                     </>
                                 }
