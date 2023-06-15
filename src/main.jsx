@@ -88,10 +88,10 @@ const router = createBrowserRouter([
         path: 'manageClass',
         element: <ManageClass></ManageClass>
       },
-    {
-        path:"payment/:id",
-        element: <Payment></Payment>
-    }
+      {
+          path:"payment/:id",
+          element: <Payment></Payment>
+      }
     ]
   }
 ])

@@ -74,13 +74,13 @@ const SingleManageClass = ({cls}) => {
                                             {statuses === "pending" && (
                                                     <>
                                                             <button
-                                                                    className="btn btn-sm btn-primary mr-3"
+                                                                    className="btn btn-sm btn-primary mr-3 mt-3 mb-2"
                                                                     onClick={() => updateStatus("approved")}
                                                             >
                                                                     Approve
                                                             </button>
                                                             <button
-                                                                    className="btn btn-sm btn-error"
+                                                                    className="btn btn-sm btn-error  mt-3 mb-2"
                                                                     onClick={() => updateStatus("denied")}
                                                             >
                                                                     Deny

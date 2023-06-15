@@ -1,8 +1,9 @@
-import { useElements, useStripe } from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../../Hook/useAxiosSecure";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const CheckOutForm = ({course}) => {
@@ -11,10 +12,11 @@ const CheckOutForm = ({course}) => {
     const { user } = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure()
     const [cardError, setCardError] = useState('');
-const [clientSecret, setClientSecret] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const navigate=useNavigate()
+
 useEffect(() => {
     console.log(course)
         if (course && course.price > 0) {
@@ -92,21 +94,22 @@ axiosSecure.post('/payments', payment)
                           )
                     }
                 })
-navigate('/dashboard/selectclass')
+            navigate('/dashboard/selectclass')
         }
 
     }    
 
 
 return (
-           <div>
-          <h1>Your Total Cost: ${course.price}</h1>
-        <form className="w-2/3 m-8" onSubmit={handleSubmit}>
+    <div className="w-full p-16">
+        <form className=" border border-primary p-10" onSubmit={handleSubmit}>
+          <h1 className="mb-5 text-xl text-primary font-semibold">Your Total Cost: ${course.price}</h1>
             <CardElement
                 options={{
                     style: {
                         base: {
                             fontSize: '16px',
+                            border:"1px solid red",
                             color: '#424770',
                             '::placeholder': {
                                 color: '#aab7c4',
@@ -124,7 +127,7 @@ return (
         </form>
         {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
         {transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>}
-           </div>
+    </div>
     );
 };
 
