@@ -24,7 +24,6 @@ const Classes = () => {
         },[url])
 
 
-
         return (
                 <>
                 <Helmet>

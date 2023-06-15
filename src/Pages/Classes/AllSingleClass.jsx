@@ -9,14 +9,14 @@ import useCart from "../../Hook/useCart";
 
 const AllSingleClass = ({cls}) => {
     console.log( 'from ',cls)
-    const  { category, instructor, photo, price, seats, status, _id } = cls
+    const  { category, instructor, photo, price, seats, status, } = cls
     const [isAdmin] = useAdmin()
     const [isInstractor] = useInstructor()
     const {user} = useContext(AuthContext)
     const navigate = useNavigate()
     const [, refetch] = useCart()
 
-    const handleAddToCart = items => {
+    const handleAddToCart = () => {
             if(user && user.email){
                 const cartItem = { category, email: user?.email, instructor, photo, price, seats, status  }
                 fetch('https://dance-learning-school-server-ochre.vercel.app/carts', {

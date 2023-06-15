@@ -11,9 +11,9 @@ const Class = () => {
             .then(data =>  {
                
                 console.log(data)
-                const approve = data.filter(cls => cls.status === "pending")
+                // const approve = data.filter(cls => cls.status === "pending")
 
-        setClass(approve)
+        setClass(data)
         }
              
             )
